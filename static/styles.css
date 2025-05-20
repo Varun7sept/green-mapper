@@ -1,0 +1,193 @@
+/* Reset default browser margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure height propagation throughout the document */
+html, body {
+    height: 100%;
+}
+
+/* Body Styling */
+body {
+    font-family: Segoe UI, Arial, sans-serif;
+    background-color: #5e7a80;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling on the whole page */
+}
+
+/* Header Styling */
+header {
+    background-color: #4898b1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+/* Main Wrapper */
+.main-wrapper {
+    display: flex;
+    align-self: center;
+    max-width: 1800px;
+    flex: 1; /* Take up remaining space after the header */
+    justify-content: space-between;
+    padding: 20px;
+    overflow: hidden; /* Prevent scrolling on the wrapper */
+    height: calc(100vh - 80px); /* Account for header height */
+}
+
+/* Left and Right Main Sections */
+.main-left, .main-right {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%; /* Ensure sections take up full height of main wrapper */
+    overflow: hidden; /* Prevent overflow on these sections */
+}
+
+/* Background colors for visibility */
+.main-left {
+    background-color: #ffffff00;
+}
+
+.main-right {
+    background-color: #ffffff00;
+}
+
+/* Main Containers for Content */
+.main-container-left, .main-container-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ecf0f1;
+    padding: 20px;
+    overflow: auto;
+    height: 100%; /* Take up the full height of the parent */
+    gap: 20px; /* Add consistent spacing between child elements */
+    border-radius: 10px;
+}
+
+/* Label Styling */
+.label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Flexible height for display containers */
+.display-container {
+    flex: 1; /* Distribute available space equally */
+    min-height: 200px; /* Maintain a minimum height */
+    background-color: #add2db;
+    position: relative;
+    overflow: auto;
+}
+
+/* Specific height for the map-container to ensure proper layout */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ensure the map fills its container */
+    border-style: solid;
+    border-color: #2ca3bb;
+    border-width: 1px;
+}
+
+/* Adjust the map display inside the container */
+#map {
+    width: 100%;
+    height: 100%; /* Map takes up the full height of its container */
+    position: absolute;
+}
+
+/* Map overlay styling */
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Overlay is non-interactive */
+    z-index: 999; /* Ensure it stays above the map */
+}
+
+/* Styling for the Polygon Display Box */
+.polygon-container {
+    position: relative;
+    width: 100%;
+    flex: 1; /* Distribute space equally */
+    height: 100%; /* Match parent container height */
+    border-style: solid;
+    border-color: #2ca3bb;
+    border-width: 1px;
+}
+
+#polygon-display {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Ensure it fills its container */
+    background-color: #7f8c8d; /* Light gray for contrast */
+    padding: 10px;
+    color: white;
+}
+
+.polygon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    gap: 10px;
+}
+
+/* Ensure consistent spacing in buttons */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2980b9;
+    color: white;
+    cursor: pointer;
+    flex-grow: 1; /* Buttons take equal space in each row */
+}
+
+/* Text Area Styling */
+textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+button:hover {
+    background-color: #3498db;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+
+    .main-left, .main-right {
+        flex: none;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[77.4993379, 12.9238427], [77.4993636, 12.9238196], [77.4994936, 12.9239572], [77.4994679, 12.9239803], [77.4993379, 12.9238427]]]}, "properties": {"id": 1319007943, "amenity": "parking", "isContained": true}}]}

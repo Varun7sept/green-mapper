@@ -1,0 +1,8 @@
+cd /path/to/your/project
+git add .
+git commit -m "Update Description"
+git push
+Log in to your Render dashboard at https://dashboard.render.com
+Verify your Render service is connected to the correct GitHub repository and branch
+Wait for the automatic deployment to complete on Render
+Test your live site to confirm updates were applied successfully

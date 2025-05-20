@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenAccessMetric</title>
+    <!-- Link to the stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+</head>
+<body>
+    <header>
+        <h1>Greenspace Accessibility Metric</h1>
+    </header>
+    
+    <main class="main-wrapper">
+        <!-- Main Left Section -->
+        <div class="main-left">
+            <div class="main-container-left">
+                <h2>Precinct</h2>
+            
+                <!-- Search Bar -->
+                <div id="searchbar-container">
+                    <input
+                        type="text"
+                        id="search-bar"
+                        placeholder="Search for a location..."
+                        style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"
+                    />
+                </div>
+
+                <!-- Left Display Label and Container -->
+                <label class="label" for="left-display">Draw an area to define your precinct</label>
+            
+                <!-- Map Display -->
+                <div class="display-container" id="left-display">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div class="map-overlay"></div> <!-- Overlay layer -->
+                    </div>                    
+                </div>
+            
+                <!-- Polygon Display Box -->
+                <label class="label" for="polygon-display">Available greenspace and building data in your precinct</label>
+                <div class="polygon-container">
+                    <div class="display-container" id="polygon-display">
+                        <p>Loading polygon data...</p>
+                    </div>
+                    <div class="polygon-overlay"></div> <!-- Overlay layer -->
+                </div>
+            
+                <!-- Legend -->
+                <div id="legend-container" style="text-align: center; margin-top: 10px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <span>0m from nearest green space (walkable)</span>
+                        <span>400m+</span>
+                    </div>
+                    <div
+                        id="legend"
+                        style="width: 100%; height: 20px; background: linear-gradient(to right, blue, red); border-radius: 4px;"
+                    ></div>
+                </div>
+            </div>            
+        </div>
+        <!-- Main Right Section -->
+        <div class="main-right">
+            <div class="main-container-right">
+                <h2>Metrics (downloads unavailable)</h2>
+        
+                <!-- Right Buttons Label and Container -->
+                <div class="button-container" id="right-buttons">
+                    <button id="download-geodata-button">Download Geodata (geojson)</button>
+                    <button id="download-geodata-button">Download Formatted Data (csv)</button>
+                    <button id="download-geodata-button">Download Report (PDF)</button>
+                </div>
+        
+                <!-- Data Metrics Overview -->
+                <label class="label" for="right-display">Metrics Overview</label>
+                <div class="display-container" id="right-display">
+                    <div id="model-display" style="width: 100%; height: 100%; padding: 20px;">
+                        <p>Draw an area to calculate sustainability metrics.</p>
+                    </div>
+                </div>
+                
+                <!-- Green Space Accessibility Metrics -->
+                <label class="label" for="right-display">Green Space Accessibility</label>
+                <div class="display-container" id="right-display">
+                    <div id="right-display-greenspace" style="width: 100%; height: 100%; padding: 20px;">
+                        <p>Draw an area to calculate green space accessibility metrics.</p>
+                    </div>
+                </div>
+
+                <!-- Right Text Box Label and Text Area -->
+                <label class="label" for="right-textbox">Notes</label>
+                <textarea id="right-textbox" placeholder="Add any notes for your PDF here."></textarea>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-geosearch@3.0.0/dist/bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    
+    <!-- Global scripts -->
+    <script src="/static/js/mapsGlobal.js"></script>
+    <script src="/static/js/metricsGlobal.js"></script>
+
+    <!-- Map scripts -->
+    <script src="/static/js/mapsInit.js"></script>
+    <script src="/static/js/mapFetchData.js"></script>
+    <script src="/static/js/mapGeoJson.js"></script>
+    <script src="/static/js/mapSaveData.js"></script>
+    <script src="/static/js/mapFootprints.js"></script>
+
+    <!-- Metrics scripts -->
+    <script src="/static/js/metricsInit.js"></script>
+    <script src="/static/js/metricsUpdate.js"></script>
+    <script src="/static/js/metricsOverview.js"></script>
+    <script src="/static/js/metricsGreenSpace.js"></script>
+
+    <!-- Other sources -->
+    <script type="module" src="https://cdn.skypack.dev/three@0.152.0"></script>
+</body>
+</html>
